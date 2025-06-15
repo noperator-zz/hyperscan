@@ -285,9 +285,9 @@ char checkBloomFilter(const struct RoseLongLitTable *ll_table,
     const u32 bloom_mask = (1U << ll_sub->bloomBits) - 1;
 
     char v = 1;
-    v &= bloomHasKey(bloom, bloom_mask, bloomHash_1(scan_buf, nocase));
-    v &= bloomHasKey(bloom, bloom_mask, bloomHash_2(scan_buf, nocase));
-    v &= bloomHasKey(bloom, bloom_mask, bloomHash_3(scan_buf, nocase));
+    // v &= bloomHasKey(bloom, bloom_mask, bloomHash_1(scan_buf, nocase));
+    // v &= bloomHasKey(bloom, bloom_mask, bloomHash_2(scan_buf, nocase));
+    // v &= bloomHasKey(bloom, bloom_mask, bloomHash_3(scan_buf, nocase));
     return v;
 }
 

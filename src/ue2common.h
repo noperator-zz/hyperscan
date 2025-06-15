@@ -114,8 +114,13 @@ typedef u32 ReportID;
 #define HAVE_TYPEOF 1
 
 #else // ms windows
+#if defined(_MSC_VER)
 #define really_inline __forceinline
 #define really_really_inline __forceinline
+#else
+#define really_inline __inline__ __attribute__((__always_inline__,__gnu_inline__))
+#define really_really_inline __inline__ __attribute__((__always_inline__,__gnu_inline__))
+#endif
 #define never_inline
 #define __builtin_prefetch(...) do {} while(0)
 #if defined(__cplusplus)

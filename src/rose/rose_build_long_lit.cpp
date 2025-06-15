@@ -96,13 +96,13 @@ void addToBloomFilter(vector<u8> &bloom, const u8 *substr, bool nocase) {
     const u32 num_keys = verify_u32(bloom.size() * 8);
     const u32 key_mask = (1U << lg2(num_keys)) -1;
 
-    const auto hash_functions = { bloomHash_1, bloomHash_2, bloomHash_3 };
-    for (const auto &hash_func : hash_functions) {
-        u32 hash = hash_func(substr, nocase);
-        u32 key = hash & key_mask;
-        DEBUG_PRINTF("set key %u (of %zu)\n", key, bloom.size() * 8);
-        bloom[key / 8] |= 1U << (key % 8);
-    }
+    // const auto hash_functions = { bloomHash_1, bloomHash_2, bloomHash_3 };
+    // for (const auto &hash_func : hash_functions) {
+    //     u32 hash = hash_func(substr, nocase);
+    //     u32 key = hash & key_mask;
+    //     DEBUG_PRINTF("set key %u (of %zu)\n", key, bloom.size() * 8);
+    //     bloom[key / 8] |= 1U << (key % 8);
+    // }
 }
 
 static

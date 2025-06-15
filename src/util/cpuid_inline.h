@@ -32,7 +32,7 @@
 #include "ue2common.h"
 #include "cpuid_flags.h"
 
-#if !defined(_WIN32) && !defined(CPUID_H_)
+#if !(defined(_WIN32) && defined(_MSC_VER)) && !defined(CPUID_H_)
 #include <cpuid.h>
 /* system header doesn't have a header guard */
 #define CPUID_H_
